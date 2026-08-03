@@ -15,6 +15,7 @@ use FeiZhu\TopSdk\Defaultability\Request\TaobaoTmcMessageProduceRequest;
 use FeiZhu\TopSdk\Defaultability\Request\TaobaoTmcUserCancelRequest;
 use FeiZhu\TopSdk\Defaultability\Request\TaobaoTmcUserPermitRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseItemAddRequest;
+use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseItemQueryRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseOrderQueryRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseMerchantShippinginfoUploadRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseItemUpdateRequest;
@@ -112,6 +113,12 @@ class Defaultability {
     **/
     public function alibabaFliggyLeaseItemAdd(AlibabaFliggyLeaseItemAddRequest $request) {
         return $this->client->execute("alibaba.fliggy.lease.item.add", $request->toMap(), $request->toFileParamMap());
+    }
+    /**
+        飞猪租赁商品查询
+    **/
+    public function alibabaFliggyLeaseItemQuery(AlibabaFliggyLeaseItemQueryRequest $request) {
+        return $this->client->execute("alibaba.fliggy.lease.item.query", $request->toMap(), $request->toFileParamMap());
     }
     /**
         飞猪租赁订单信息查询
