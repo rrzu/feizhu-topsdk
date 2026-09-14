@@ -88,6 +88,8 @@ use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelHouseAddRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelHouseRoomtypeAddRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelBnbhotelpriceTrackRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelBnbxbotRecordRequest;
+use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelBnbSojournUnbindRequest;
+use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelBnbSojournBindRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelRateRelationshipwithrpGetRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelCityCoordinatesBatchDownloadRequest;
 use FeiZhu\TopSdk\Ability347\Request\TaobaoXhotelRateRelationshipwithroomGetRequest;
@@ -619,6 +621,18 @@ class Ability347 {
     **/
     public function taobaoXhotelBnbxbotRecord(TaobaoXhotelBnbxbotRecordRequest $request) {
         return $this->client->execute("taobao.xhotel.bnbxbot.record", $request->toMap(), $request->toFileParamMap());
+    }
+    /**
+        旅居关系解绑
+    **/
+    public function taobaoXhotelBnbSojournUnbind(TaobaoXhotelBnbSojournUnbindRequest $request,string $session) {
+        return $this->client->executeWithSession("taobao.xhotel.bnb.sojourn.unbind", $request->toMap(), $request->toFileParamMap(), $session);
+    }
+    /**
+        民宿旅居关系绑定
+    **/
+    public function taobaoXhotelBnbSojournBind(TaobaoXhotelBnbSojournBindRequest $request,string $session) {
+        return $this->client->executeWithSession("taobao.xhotel.bnb.sojourn.bind", $request->toMap(), $request->toFileParamMap(), $session);
     }
     /**
         根据gid查询卖家下所有的rpId

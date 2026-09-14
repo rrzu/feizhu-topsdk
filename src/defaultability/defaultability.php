@@ -7,6 +7,7 @@ use FeiZhu\TopSdk\Defaultability\Request\TaobaoLogisticsInstantTraceSearchReques
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaAscpLogisticsSellerWriteoffRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaAscpLogisticsSellerSendRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaAscpLogisticsSellerOrdersGetRequest;
+use FeiZhu\TopSdk\Defaultability\Request\AlibabaFliggyLeaseMerchantItemReturnRequest;
 use FeiZhu\TopSdk\Defaultability\Request\TaobaoKfcKeywordSearchRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaAscpLogisticsOfflineSendRequest;
 use FeiZhu\TopSdk\Defaultability\Request\AlibabaAscpLogisticsConsignResendRequest;
@@ -65,6 +66,12 @@ class Defaultability {
     **/
     public function alibabaAscpLogisticsSellerOrdersGet(AlibabaAscpLogisticsSellerOrdersGetRequest $request,string $session) {
         return $this->client->executeWithSession("alibaba.ascp.logistics.seller.orders.get", $request->toMap(), $request->toFileParamMap(), $session);
+    }
+    /**
+        飞猪租赁商家代替用户归还
+    **/
+    public function alibabaFliggyLeaseMerchantItemReturn(AlibabaFliggyLeaseMerchantItemReturnRequest $request) {
+        return $this->client->execute("alibaba.fliggy.lease.merchant.item.return", $request->toMap(), $request->toFileParamMap());
     }
     /**
         关键词过滤匹配

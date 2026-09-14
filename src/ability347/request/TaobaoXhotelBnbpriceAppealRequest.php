@@ -14,6 +14,11 @@ class TaobaoXhotelBnbpriceAppealRequest {
      **/
     private $pageSize;
 
+    /**
+        唯一值
+     **/
+    private $tableCode;
+
 
     public function getPageNo() : int{
         return $this->pageNo;
@@ -31,6 +36,14 @@ class TaobaoXhotelBnbpriceAppealRequest {
         $this->pageSize = $pageSize;
     }
 
+    public function getTableCode() : string{
+        return $this->tableCode;
+    }
+
+    public function setTableCode(string $tableCode){
+        $this->tableCode = $tableCode;
+    }
+
 
     public function getApiName() : string {
         return "taobao.xhotel.bnbprice.appeal";
@@ -44,6 +57,10 @@ class TaobaoXhotelBnbpriceAppealRequest {
 
         if (!TopUtil::checkEmpty($this->pageSize)) {
             $requestParam["page_size"] = TopUtil::convertBasic($this->pageSize);
+        }
+
+        if (!TopUtil::checkEmpty($this->tableCode)) {
+            $requestParam["table_code"] = TopUtil::convertBasic($this->tableCode);
         }
 
         return $requestParam;
